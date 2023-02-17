@@ -1,30 +1,27 @@
 const fs = require('fs');
 
-fs.readdir('/', (err, files)=>{
-    console.log("alma");
-    console.log('====================================');
-    console.log(files);
-    console.log('====================================');
-})
+main('./old', './new', './selected')
+
 
 let readFiles = (path) =>{
+    let rlist = []
     fs.readdir(path, (err, files) =>{
+        console.log('====================================');
+        console.log("kecske");
+        console.log(path);
+        console.log(files);
+        console.log('====================================');
         files.forEach(e => {
-            console.log('====================================');
-            console.log(e);
-            console.log('====================================');
-        });
-        return files;
+            rlist.push(e)
+        })
+        fs.close()
     })
+    return rlist
 }
 
 let main = (oldPath, newPath, selectedPath) =>{
     console.log('====================================');
-    fs.readdir('./', (err, files)=>{
-        files.forEach(e => {
-            console.log(e);
-        });
-    })
+    console.log("alma");
     console.log('====================================');
     let filenames = findCh(readFiles(selectedPath))
     let rawfiles = selectRaws(readFiles(oldPath), filenames)
@@ -71,5 +68,3 @@ let findCh = (list) =>{
     
     return ch_list;
 }
-
-main('../old/', '../new/', '../selected/')
