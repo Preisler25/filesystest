@@ -52,4 +52,4 @@ const main = async (path, path2, path3) => {
     )
 }
 
-main('./old', './selected', './new')
+main('./selected', './BG', './new')
